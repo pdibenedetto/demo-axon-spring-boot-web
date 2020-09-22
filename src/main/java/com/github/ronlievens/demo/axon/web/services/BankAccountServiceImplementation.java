@@ -24,21 +24,21 @@ class BankAccountServiceImplementation implements BankAccountService {
 
     @Override
     public CompletableFuture<UUID> createAccount(final Money money) {
-        return commandGateway.send(new CreateAccountCommand(UUID.randomUUID().toString(),
+        return commandGateway.send(new CreateAccountCommand(UUID.randomUUID(),
                                                             money.getAmount(),
                                                             money.getCurrency()));
     }
 
     @Override
     public CompletableFuture<UUID> creditMoneyToAccount(final UUID accountNumber, final Money money) {
-        return commandGateway.send(new CreditMoneyCommand(accountNumber.toString(),
+        return commandGateway.send(new CreditMoneyCommand(accountNumber,
                                                           money.getAmount(),
                                                           money.getCurrency()));
     }
 
     @Override
     public CompletableFuture<UUID> debitMoneyFromAccount(final UUID accountNumber, final Money money) {
-        return commandGateway.send(new DebitMoneyCommand(accountNumber.toString(),
+        return commandGateway.send(new DebitMoneyCommand(accountNumber,
                                                          money.getAmount(),
                                                          money.getCurrency()));
     }

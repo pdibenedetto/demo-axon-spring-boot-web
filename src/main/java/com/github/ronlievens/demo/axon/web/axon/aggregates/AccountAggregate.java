@@ -13,12 +13,14 @@ import org.axonframework.modelling.command.AggregateIdentifier;
 import org.axonframework.modelling.command.AggregateLifecycle;
 import org.axonframework.spring.stereotype.Aggregate;
 
+import java.util.UUID;
+
 @NoArgsConstructor
 @Aggregate
 public class AccountAggregate {
 
     @AggregateIdentifier
-    private String id;
+    private UUID id;
     private double accountBalance;
     private Currency currency;
     private String status;
@@ -26,7 +28,7 @@ public class AccountAggregate {
     // --[ Create Account ]---------------------------------------------------------------------------------------------
     @CommandHandler
     public AccountAggregate(final CreateAccountCommand createAccountCommand) {
-        AggregateLifecycle.apply(new AccountCreatedEvent(createAccountCommand.id.toString(),
+        AggregateLifecycle.apply(new AccountCreatedEvent(createAccountCommand.id,
                                                          createAccountCommand.accountBalance,
                                                          createAccountCommand.currency));
     }
@@ -38,7 +40,7 @@ public class AccountAggregate {
         this.currency = accountCreatedEvent.currency;
         this.status = String.valueOf(Status.CREATED);
 
-        AggregateLifecycle.apply(new AccountActivatedEvent(this.id.toString(), Status.ACTIVATED));
+        AggregateLifecycle.apply(new AccountActivatedEvent(this.id, Status.ACTIVATED));
     }
 
     // --[ Account Activated ]------------------------------------------------------------------------------------------
@@ -49,7 +51,7 @@ public class AccountAggregate {
 
     @CommandHandler
     protected void on(final CreditMoneyCommand creditMoneyCommand) {
-        AggregateLifecycle.apply(new MoneyCreditedEvent(creditMoneyCommand.id.toString(),
+        AggregateLifecycle.apply(new MoneyCreditedEvent(creditMoneyCommand.id,
                                                         creditMoneyCommand.creditAmount,
                                                         creditMoneyCommand.currency));
     }
@@ -58,7 +60,7 @@ public class AccountAggregate {
     protected void on(final MoneyCreditedEvent moneyCreditedEvent) {
 
         if (this.accountBalance < 0 & (this.accountBalance + moneyCreditedEvent.creditAmount) >= 0) {
-            AggregateLifecycle.apply(new AccountActivatedEvent(this.id.toString(), Status.ACTIVATED));
+            AggregateLifecycle.apply(new AccountActivatedEvent(this.id, Status.ACTIVATED));
         }
 
         this.accountBalance += moneyCreditedEvent.creditAmount;
@@ -66,7 +68,7 @@ public class AccountAggregate {
 
     @CommandHandler
     protected void on(final DebitMoneyCommand debitMoneyCommand) {
-        AggregateLifecycle.apply(new MoneyDebitedEvent(debitMoneyCommand.id.toString(),
+        AggregateLifecycle.apply(new MoneyDebitedEvent(debitMoneyCommand.id,
                                                        debitMoneyCommand.debitAmount,
                                                        debitMoneyCommand.currency));
     }
@@ -75,7 +77,7 @@ public class AccountAggregate {
     protected void on(final MoneyDebitedEvent moneyDebitedEvent) {
 
         if (this.accountBalance >= 0 & (this.accountBalance - moneyDebitedEvent.debitAmount) < 0) {
-            AggregateLifecycle.apply(new AccountHeldEvent(this.id.toString(), Status.HOLD));
+            AggregateLifecycle.apply(new AccountHeldEvent(this.id, Status.HOLD));
         }
 
         this.accountBalance -= moneyDebitedEvent.debitAmount;
