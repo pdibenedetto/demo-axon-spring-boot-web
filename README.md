@@ -12,7 +12,7 @@ This demo is dependent on [docker-compose-axon-se](the https://github.com/ronlie
 - Added Spring boot layered docker image
 - Upgrade to Java 11 and run with GraalVM
 - Build docker image via Spring Boot
-- Make compatible with demo-axon-spring-boot-web
+- Make compatible with demo-axon-spring-boot-webflux
 
 # Wishlist
 - Add GraalVM Native image
