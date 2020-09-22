@@ -1,6 +1,6 @@
-package com.github.ronlievens.demo.axon.web.axon.events;
+package com.github.ronlievens.demo.axon.events;
 
-import com.github.ronlievens.demo.axon.web.model.Status;
+import com.github.ronlievens.demo.model.Status;
 import lombok.RequiredArgsConstructor;
 
 import java.util.UUID;

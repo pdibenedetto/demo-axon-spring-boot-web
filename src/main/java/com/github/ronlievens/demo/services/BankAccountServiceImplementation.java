@@ -1,10 +1,10 @@
-package com.github.ronlievens.demo.axon.web.services;
+package com.github.ronlievens.demo.services;
 
 
-import com.github.ronlievens.demo.axon.web.axon.commands.CreateAccountCommand;
-import com.github.ronlievens.demo.axon.web.axon.commands.CreditMoneyCommand;
-import com.github.ronlievens.demo.axon.web.axon.commands.DebitMoneyCommand;
-import com.github.ronlievens.demo.axon.web.model.Money;
+import com.github.ronlievens.demo.axon.commands.CreateAccountCommand;
+import com.github.ronlievens.demo.axon.commands.CreditMoneyCommand;
+import com.github.ronlievens.demo.axon.commands.DebitMoneyCommand;
+import com.github.ronlievens.demo.model.Money;
 import lombok.RequiredArgsConstructor;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.axonframework.eventsourcing.eventstore.EventStore;

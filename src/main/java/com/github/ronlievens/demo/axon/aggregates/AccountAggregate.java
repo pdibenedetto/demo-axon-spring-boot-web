@@ -1,11 +1,11 @@
-package com.github.ronlievens.demo.axon.web.axon.aggregates;
+package com.github.ronlievens.demo.axon.aggregates;
 
-import com.github.ronlievens.demo.axon.web.axon.commands.CreateAccountCommand;
-import com.github.ronlievens.demo.axon.web.axon.commands.CreditMoneyCommand;
-import com.github.ronlievens.demo.axon.web.axon.commands.DebitMoneyCommand;
-import com.github.ronlievens.demo.axon.web.axon.events.*;
-import com.github.ronlievens.demo.axon.web.model.Currency;
-import com.github.ronlievens.demo.axon.web.model.Status;
+import com.github.ronlievens.demo.axon.commands.CreateAccountCommand;
+import com.github.ronlievens.demo.axon.commands.CreditMoneyCommand;
+import com.github.ronlievens.demo.axon.commands.DebitMoneyCommand;
+import com.github.ronlievens.demo.axon.events.*;
+import com.github.ronlievens.demo.model.Currency;
+import com.github.ronlievens.demo.model.Status;
 import lombok.NoArgsConstructor;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;

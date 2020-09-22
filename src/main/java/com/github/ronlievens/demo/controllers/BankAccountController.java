@@ -1,7 +1,7 @@
-package com.github.ronlievens.demo.axon.web.controllers;
+package com.github.ronlievens.demo.controllers;
 
-import com.github.ronlievens.demo.axon.web.model.Money;
-import com.github.ronlievens.demo.axon.web.services.BankAccountService;
+import com.github.ronlievens.demo.model.Money;
+import com.github.ronlievens.demo.services.BankAccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

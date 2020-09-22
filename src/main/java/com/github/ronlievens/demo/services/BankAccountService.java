@@ -1,6 +1,6 @@
-package com.github.ronlievens.demo.axon.web.services;
+package com.github.ronlievens.demo.services;
 
-import com.github.ronlievens.demo.axon.web.model.Money;
+import com.github.ronlievens.demo.model.Money;
 
 import java.util.List;
 import java.util.UUID;

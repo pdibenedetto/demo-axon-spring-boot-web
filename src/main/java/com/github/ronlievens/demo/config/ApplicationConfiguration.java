@@ -1,6 +1,6 @@
-package com.github.ronlievens.demo.axon.web.config;
+package com.github.ronlievens.demo.config;
 
-import com.github.ronlievens.demo.axon.web.config.metrics.UndertowMetricsHandlerWrapper;
+import com.github.ronlievens.demo.config.metrics.UndertowMetricsHandlerWrapper;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.web.embedded.undertow.UndertowDeploymentInfoCustomizer;
 import org.springframework.context.annotation.Bean;

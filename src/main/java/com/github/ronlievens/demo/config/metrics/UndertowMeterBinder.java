@@ -1,4 +1,4 @@
-package com.github.ronlievens.demo.axon.web.config.metrics;
+package com.github.ronlievens.demo.config.metrics;
 
 import io.micrometer.core.instrument.FunctionCounter;
 import io.micrometer.core.instrument.FunctionTimer;

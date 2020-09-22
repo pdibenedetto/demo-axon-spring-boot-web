@@ -1,4 +1,4 @@
-package com.github.ronlievens.demo.axon.web.model;
+package com.github.ronlievens.demo.model;
 
 public enum Status {
     CREATED, ACTIVATED, HOLD
