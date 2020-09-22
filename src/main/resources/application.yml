@@ -61,6 +61,10 @@ management:
 # = AXON
 # ======================================================================================================================
 axon:
+  serializer:
+    general: 'jackson'
+    events: 'jackson'
+    messages: 'jackson'
   metrics:
     auto-configuration:
       enabled: true
