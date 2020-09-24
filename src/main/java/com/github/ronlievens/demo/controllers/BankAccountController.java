@@ -17,8 +17,8 @@ public class BankAccountController {
     private final BankAccountService bankAccountService;
 
     @PostMapping
-    public CompletableFuture<UUID> createAccount(@RequestBody Money balance) {
-        return bankAccountService.createAccount(balance);
+    public CompletableFuture<UUID> createAccount(@RequestBody NewBackAccountModel model) {
+        return bankAccountService.createAccount(model.getName(), model.getCurrency(), model.getAmount());
     }
 
     @PutMapping(value = "/credits/{accountNumber}")

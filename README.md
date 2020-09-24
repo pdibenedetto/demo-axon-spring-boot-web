@@ -22,3 +22,5 @@ This demo is dependent on [docker-compose-axon-se](the https://github.com/ronlie
 - Open [OpenAPI Definition](http://127.0.0.1:8081/v3/swagger-ui.html)
 - Open [Spring Actuator](http://127.0.0.1:8081/actuator)
 - Open [Spring Actuator Prometheus scraper page](http://127.0.0.1:8081/actuator/prometheus)
+- Open [Axon Server config](http://localhost:8024/v1/public/me)
+- Open [Axon Dashboard](http://127.0.0.1:8024)

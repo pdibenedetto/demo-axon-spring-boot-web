@@ -9,6 +9,7 @@ import java.util.UUID;
 public class AccountCreatedEvent {
 
     public final UUID id;
+    public final String name;
     public final double accountBalance;
     public final Currency currency;
 }

@@ -4,6 +4,7 @@ package com.github.ronlievens.demo.services;
 import com.github.ronlievens.demo.axon.commands.CreateAccountCommand;
 import com.github.ronlievens.demo.axon.commands.CreditMoneyCommand;
 import com.github.ronlievens.demo.axon.commands.DebitMoneyCommand;
+import com.github.ronlievens.demo.model.Currency;
 import com.github.ronlievens.demo.model.Money;
 import lombok.RequiredArgsConstructor;
 import org.axonframework.commandhandling.gateway.CommandGateway;
@@ -23,10 +24,11 @@ class BankAccountServiceImplementation implements BankAccountService {
     private final EventStore eventStore;
 
     @Override
-    public CompletableFuture<UUID> createAccount(final Money money) {
+    public CompletableFuture<UUID> createAccount(final String name, final Currency currency, final double amount) {
         return commandGateway.send(new CreateAccountCommand(UUID.randomUUID(),
-                                                            money.getAmount(),
-                                                            money.getCurrency()));
+                                                            name,
+                                                            amount,
+                                                            currency));
     }
 
     @Override

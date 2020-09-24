@@ -21,6 +21,7 @@ public class AccountAggregate {
 
     @AggregateIdentifier
     private UUID id;
+    private String name;
     private double accountBalance;
     private Currency currency;
     private String status;
@@ -29,6 +30,7 @@ public class AccountAggregate {
     @CommandHandler
     public AccountAggregate(final CreateAccountCommand createAccountCommand) {
         AggregateLifecycle.apply(new AccountCreatedEvent(createAccountCommand.id,
+                                                         createAccountCommand.name,
                                                          createAccountCommand.accountBalance,
                                                          createAccountCommand.currency));
     }
@@ -36,6 +38,7 @@ public class AccountAggregate {
     @EventSourcingHandler
     protected void on(final AccountCreatedEvent accountCreatedEvent) {
         this.id = accountCreatedEvent.id;
+        this.name = accountCreatedEvent.name;
         this.accountBalance = accountCreatedEvent.accountBalance;
         this.currency = accountCreatedEvent.currency;
         this.status = String.valueOf(Status.CREATED);
